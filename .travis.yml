@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+  - 14.17.1
+services:
+  - mongodb
+deploy:
+  provider: elasticbeanstalk
+  access_key_id: $ACCESSKEYID
+  secret_access_key: $SECRETACCESSKEY
+  region: "us-east-2"
+  app: "jonathan-otot-b2.2"
+  env: "Jonathanototb22-env"
+  bucket_name: "elasticbeanstalk-us-east-2-526538496434"
+  on:
+    branch: master

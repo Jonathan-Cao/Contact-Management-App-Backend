@@ -1,0 +1,291 @@
+{
+	"info": {
+		"_postman_id": "ad7adb16-dc82-4245-aac6-126ec48a84bd",
+		"name": "Jonathan-OTOT-B1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17385861"
+	},
+	"item": [
+		{
+			"name": "Retrieve all contacts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/api/contacts",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve contact by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/api/contacts/{{VALID_ID}}",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"contacts",
+						"{{VALID_ID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add a contact (missing name)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "jonathan@gmail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/contacts",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add a contact (missing email)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Jonathan",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/contacts",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add a contact (necessary attributes)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Jonathan",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "jonathan@gmail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/contacts",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add a contact (all attributes)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Jonathan",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "jonathan@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "91234567",
+							"type": "text"
+						},
+						{
+							"key": "gender",
+							"value": "Male",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/contacts",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update existing contact (select any attribute)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Jane",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "jane@gmail.com",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "phone",
+							"value": "97654321",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "gender",
+							"value": "Female",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/contacts/{{VALID_ID}}",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"contacts",
+						"{{VALID_ID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete existing contact",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/api/contacts/{{ANOTHER_VALID_ID}}",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"contacts",
+						"{{ANOTHER_VALID_ID}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://jonathanototb22-env.eba-472gmmwp.us-east-2.elasticbeanstalk.com"
+		},
+		{
+			"key": "VALID_ID",
+			"value": "6308cacde91515be14b9f290"
+		},
+		{
+			"key": "ANOTHER_VALID_ID",
+			"value": "For demo purposes, please use another contact ID instead of VALID_ID"
+		}
+	]
+}
