@@ -4,6 +4,8 @@ let express = require("express");
 let bodyParser = require("body-parser");
 // Import db
 let db = require("./db/index.js");
+// Import cors
+let cors = require("cors");
 // Initialise the app
 let app = express();
 
@@ -16,6 +18,12 @@ app.use(
   })
 );
 app.use(bodyParser.json());
+// Configure cors
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+  })
+);
 // Connect to db
 db.connect();
 
