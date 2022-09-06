@@ -7,9 +7,9 @@ deploy:
   provider: elasticbeanstalk
   access_key_id: $ACCESSKEYID
   secret_access_key: $SECRETACCESSKEY
-  region: "us-east-2"
+  region: "ap-southeast-1"
   app: "jonathan-otot-b2.2"
   env: "Jonathanototb22-env"
-  bucket_name: "elasticbeanstalk-us-east-2-526538496434"
+  bucket_name: "elasticbeanstalk-ap-southeast-1-509469594312"
   on:
     branch: master
