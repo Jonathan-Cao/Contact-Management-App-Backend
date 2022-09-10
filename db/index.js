@@ -14,7 +14,7 @@ async function connect() {
     const uri = mongod.getUri();
     mongoose.connect(uri);
   } else {
-    mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/resthub", {
+    mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/b1", {
       useNewUrlParser: true,
     });
   }
