@@ -25,25 +25,6 @@
 			"response": []
 		},
 		{
-			"name": "Retrieve contact by ID",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{BASE_URL}}/api/contacts/{{VALID_ID}}",
-					"host": [
-						"{{BASE_URL}}"
-					],
-					"path": [
-						"api",
-						"contacts",
-						"{{VALID_ID}}"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Add a contact (missing name)",
 			"request": {
 				"method": "POST",
@@ -101,6 +82,18 @@
 		},
 		{
 			"name": "Add a contact (necessary attributes)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"pm.collectionVariables.set(\"VALID_ID\", jsonData.data._id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -133,43 +126,19 @@
 			"response": []
 		},
 		{
-			"name": "Add a contact (all attributes)",
+			"name": "Retrieve contact by ID",
 			"request": {
-				"method": "POST",
+				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "name",
-							"value": "John",
-							"type": "text"
-						},
-						{
-							"key": "email",
-							"value": "john@gmail.com",
-							"type": "text"
-						},
-						{
-							"key": "phone",
-							"value": "91234567",
-							"type": "text"
-						},
-						{
-							"key": "gender",
-							"value": "Male",
-							"type": "text"
-						}
-					]
-				},
 				"url": {
-					"raw": "{{BASE_URL}}/api/contacts",
+					"raw": "{{BASE_URL}}/api/contacts/{{VALID_ID}}",
 					"host": [
 						"{{BASE_URL}}"
 					],
 					"path": [
 						"api",
-						"contacts"
+						"contacts",
+						"{{VALID_ID}}"
 					]
 				}
 			},
