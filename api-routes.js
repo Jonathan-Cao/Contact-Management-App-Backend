@@ -23,5 +23,10 @@ router
   .put(contactController.update)
   .delete(contactController.delete);
 
+// Import cache controller
+var cacheController = require("./cacheController");
+// Contact routes
+router.route("/cache").get(cacheController.get);
+
 // Export API routes
 module.exports = router;
