@@ -93,23 +93,18 @@ exports.update = function (req, res) {
 
 // Handle delete contact
 exports.delete = function (req, res) {
-  Contact.deleteOne(
-    {
-      _id: req.params.contact_id,
-    },
-    function (err, resp) {
-      if (!resp.deletedCount) {
-        res.status(404).send("Contact not found!");
-        return;
-      }
-      if (err) {
-        res.status(500).send(err);
-        return;
-      }
-      res.status(200).send({
-        status: "success",
-        message: "Contact deleted",
-      });
+  Contact.findByIdAndRemove(req.params.contact_id, function (err, contact) {
+    if (!contact) {
+      res.status(404).send("Contact not found!");
+      return;
     }
-  );
+    if (err) {
+      res.status(500).send(err);
+      return;
+    }
+    res.status(200).send({
+      status: "success",
+      message: "Contact deleted",
+    });
+  });
 };
